@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ElectionPollApplication">
         <activity
+            android:name=".ResearchStimulated"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

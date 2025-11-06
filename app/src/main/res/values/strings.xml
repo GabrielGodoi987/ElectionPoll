@@ -15,4 +15,8 @@
     <string name="seja_bem_vindo">Seja bem-vindo!</string>
     <string name="election_poll">Election Poll</string>
     <string name="entrar">Entrar</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
+    <string name="pesquisa_estimulada">Pesquisa estimulada</string>
 </resources>
