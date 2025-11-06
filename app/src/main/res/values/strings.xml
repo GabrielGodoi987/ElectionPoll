@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ElectionPollApplication</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="vote_splash_image">Vote_splash_image</string>
+    <string name="button">Button</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="seja_bem_vindo">Seja bem-vindo!</string>
+    <string name="election_poll">Election Poll</string>
+    <string name="entrar">Entrar</string>
+</resources>
