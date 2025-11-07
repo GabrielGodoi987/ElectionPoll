@@ -15,12 +15,14 @@ public class User {
     private UserRole userRole;
 
     public User(){}
-    public User(Long id, String name, String email, String password) {
+    public User(Long id, String name, String email, String password, UserRole userRole) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.userRole = userRole;
     }
+
 
     public Long getId() {
         return id;

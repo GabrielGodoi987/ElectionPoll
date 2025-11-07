@@ -1,9 +1,10 @@
 package com.example.electionpollapplication;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,30 +12,37 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.electionpollapplication.data.entities.User;
 import com.example.electionpollapplication.data.services.UserService;
+import com.example.electionpollapplication.utils.AppNavigator;
 
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailInpt, passwordInpt;
     Button loginBtn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+        UserService userService = new UserService();
+        UserService.getInstance();
+        userService.initiateUsers();
 
         emailInpt = findViewById(R.id.emailAddressInpt);
         passwordInpt = findViewById(R.id.passwordInpt);
         loginBtn = findViewById(R.id.loginBtn);
 
-        UserService userService = new UserService();
-
-        userService.initiateUsers();
-
         loginBtn.setOnClickListener(action -> {
-            Intent intent = new Intent(LoginActivity.this, ResearchStimulated.class);
-            startActivity(intent);
+            User userExists = userService.loginUser(emailInpt.getText().toString(), passwordInpt.getText().toString());
+            if (userExists != null) {
+                Toast.makeText(this, String.format("Olá %s Seja bem-vindo de volta ao Ellection Poll", userExists.getName()), Toast.LENGTH_SHORT).show();
+                AppNavigator.goTo(LoginActivity.this, ResearchEstimated.class);
+                return;
+            }
+            Toast.makeText(this, String.format("Usuário %s não existe", emailInpt.getText().toString()), Toast.LENGTH_SHORT).show();
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
