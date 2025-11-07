@@ -1,5 +1,7 @@
 package com.example.electionpollapplication.data.entities;
 
+import androidx.annotation.NonNull;
+
 import com.example.electionpollapplication.data.enums.UserRole;
 
 import java.util.Objects;
@@ -70,5 +72,17 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", userRole=" + userRole +
+                '}';
     }
 }
