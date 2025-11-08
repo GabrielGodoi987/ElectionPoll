@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Candidate {
 
-    private String id;
+    private Long id;
     private String name;
 
     private String description;
@@ -14,18 +14,18 @@ public class Candidate {
     public Candidate() {
     }
 
-    public Candidate(String id, String name, String description, Long votingIntetions) {
+    public Candidate(Long id, String name, String description, Long votingIntetions) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.votingIntetions = votingIntetions;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
