@@ -26,15 +26,18 @@ public class ProblemSetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_problem_set);
+
         problemService = new ProblemService();
         problemService.problemsFactory();
 
         problemSetRecyclerView = findViewById(R.id.problemSetRecyclerView);
+        confirmBtn = findViewById(R.id.confirmBtn);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         problemSetRecyclerView.setLayoutManager(linearLayoutManager);
-        problemSetRecyclerView.setAdapter(new ProblemAdapter(this, problemService.getProblemList(), (problemButton, isChecked) -> {
+        problemSetRecyclerView.setAdapter(new ProblemAdapter(this, problemService.getProblemList(), (problemButton, isChecked, problem) -> {
             if (isChecked) {
-                Toast.makeText(this, "Botão toast ativado para", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, String.format("Botão toast ativado para o problema %s, id: %s", problem.getTitle(), problem.getId().toString()), Toast.LENGTH_SHORT).show();
             }
         }));
 
@@ -42,7 +45,6 @@ public class ProblemSetActivity extends AppCompatActivity {
             Toast.makeText(this, "Clicado", Toast.LENGTH_SHORT).show();
         });
 
-        setContentView(R.layout.activity_problem_set);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

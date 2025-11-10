@@ -6,12 +6,15 @@ public class Problem {
     private Long id;
     private String title;
 
+    private Boolean isChecked;
+
     public Problem() {
     }
 
     public Problem(Long id, String title) {
         this.id = id;
         this.title = title;
+        this.isChecked = false;
     }
 
     public Long getId() {
@@ -28,6 +31,14 @@ public class Problem {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Boolean getChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(Boolean checked) {
+        isChecked = checked;
     }
 
     @Override

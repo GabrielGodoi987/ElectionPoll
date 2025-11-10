@@ -58,13 +58,11 @@ public class StimulatedResearchView extends AppCompatActivity {
                     Toast.makeText(StimulatedResearchView.this, "Candidato não encontrado", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(StimulatedResearchView.this, "Ação confirmada!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StimulatedResearchView.this, String.format("Voto confirmado em %s?", name), Toast.LENGTH_SHORT).show();
                 AppNavigator.goTo(StimulatedResearchView.this, ProblemSetActivity.class);
 
                 Long intentions = candidate.getVotingIntetions() + 1L;
-                Toast.makeText(StimulatedResearchView.this, intentions.toString(), Toast.LENGTH_SHORT).show();
                 candidate.setVotingIntetions(intentions);
-                Toast.makeText(StimulatedResearchView.this, candidate.getVotingIntetions().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

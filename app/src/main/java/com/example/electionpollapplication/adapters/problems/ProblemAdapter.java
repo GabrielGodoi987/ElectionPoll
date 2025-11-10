@@ -35,7 +35,11 @@ public class ProblemAdapter extends RecyclerView.Adapter<ProblemViewHolder> {
     public void onBindViewHolder(@NonNull ProblemViewHolder holder, int position) {
         Problem problem = problems.get(position);
         holder.textProblemTitle.setText(problem.getTitle());
-        holder.checkProblem.setOnCheckedChangeListener((button, isChecked) -> onCheckChangeCheckBox.setOnChangeListener(button, isChecked));
+        holder.checkProblem.setChecked(problem.getChecked());
+
+        holder.checkProblem.setOnCheckedChangeListener((button, isChecked) ->
+                onCheckChangeCheckBox.setOnChangeListener(button, isChecked, problem)
+        );
     }
 
     @Override

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.electionpollapplication.R;
 public class ProblemViewHolder extends RecyclerView.ViewHolder {
 
-    TextView textProblemTitle;
+    public TextView textProblemTitle;
     CheckBox checkProblem;
     public ProblemViewHolder(@NonNull View itemView) {
         super(itemView);
