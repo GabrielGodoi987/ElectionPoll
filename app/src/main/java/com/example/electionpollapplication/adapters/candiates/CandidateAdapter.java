@@ -1,4 +1,4 @@
-package com.example.electionpollapplication.adapters;
+package com.example.electionpollapplication.adapters.candiates;
 
 import android.content.Context;
 import android.view.LayoutInflater;

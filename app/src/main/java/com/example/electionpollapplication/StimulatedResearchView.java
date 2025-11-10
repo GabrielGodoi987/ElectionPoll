@@ -1,6 +1,5 @@
 package com.example.electionpollapplication;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -15,12 +14,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.electionpollapplication.adapters.CandidateAdapter;
+import com.example.electionpollapplication.adapters.candiates.CandidateAdapter;
 import com.example.electionpollapplication.data.entities.Candidate;
 import com.example.electionpollapplication.data.services.CandidateService;
 import com.example.electionpollapplication.utils.AppNavigator;
-
-import java.util.List;
 
 public class StimulatedResearchView extends AppCompatActivity {
     RecyclerView candidateReciclerView;
