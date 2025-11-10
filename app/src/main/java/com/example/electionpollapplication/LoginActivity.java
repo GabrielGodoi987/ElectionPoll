@@ -1,6 +1,5 @@
 package com.example.electionpollapplication;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         UserService userService = new UserService();
         UserService.getInstance();
-        userService.initiateUsers();
+        userService.usersFactory();
 
         emailInpt = findViewById(R.id.emailAddressInpt);
         passwordInpt = findViewById(R.id.passwordInpt);

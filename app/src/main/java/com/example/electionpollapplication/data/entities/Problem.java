@@ -2,14 +2,14 @@ package com.example.electionpollapplication.data.entities;
 
 import java.util.Objects;
 
-public class Problems {
+public class Problem {
     private Long id;
     private String title;
 
-    public Problems() {
+    public Problem() {
     }
 
-    public Problems(Long id, String title) {
+    public Problem(Long id, String title) {
         this.id = id;
         this.title = title;
     }
@@ -33,8 +33,8 @@ public class Problems {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Problems problems = (Problems) o;
-        return Objects.equals(id, problems.id);
+        Problem problem = (Problem) o;
+        return Objects.equals(id, problem.id);
     }
 
     @Override

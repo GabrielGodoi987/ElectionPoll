@@ -16,7 +16,7 @@ public class User {
 
     private UserRole userRole;
 
-    private final Set<Problems> problemsSet = new HashSet<>();
+    private final Set<Problem> problemsSet = new HashSet<>();
 
     public User(){}
     public User(Long id, String name, String email, String password, UserRole userRole) {
@@ -68,7 +68,7 @@ public class User {
         this.userRole = userRole;
     }
 
-    public Set<Problems> getProblemsSet() {
+    public Set<Problem> getProblemsSet() {
         return problemsSet;
     }
 

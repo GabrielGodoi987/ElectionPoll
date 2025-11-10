@@ -25,7 +25,7 @@ public class UserService {
         }
     }
 
-    public void initiateUsers() {
+    public void usersFactory() {
         usersData.add(new User(1L, "Joao example", "joao@example.com", "1234", UserRole.INTERVIEWER));
         usersData.add(new User(2L, "Maria example", "maria@example.com", "1234", UserRole.INTERVIEWER));
     }
