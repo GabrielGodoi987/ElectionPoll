@@ -19,4 +19,10 @@
     <string name="senha">Senha</string>
     <string name="login">Login</string>
     <string name="pesquisa_estimulada">Pesquisa estimulada</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="pesquisa_espontanea">Pesquisa Espontanea</string>
+    <string name="descri_o_breve_do_candidato_ou_do_projeto">Descrição breve do candidato ou do projeto.</string>
+    <string name="votar">Votar</string>
+    <string name="nome_do_candidato">Nome do Candidato</string>
+    <string name="imagem_do_candidato">Imagem do candidato</string>
 </resources>

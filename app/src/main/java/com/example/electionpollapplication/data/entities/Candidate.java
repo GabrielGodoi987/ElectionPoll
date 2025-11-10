@@ -5,17 +5,20 @@ import java.util.Objects;
 public class Candidate {
 
     private Long id;
+
+    private String image;
     private String name;
 
     private String description;
 
     private Long votingIntetions;
 
-    public Candidate() {
+    public Candidate(Long aLong, String name, String description, Long votingIntentions) {
     }
 
-    public Candidate(Long id, String name, String description, Long votingIntetions) {
+    public Candidate(Long id, String image, String name, String description, Long votingIntetions) {
         this.id = id;
+        this.image = image;
         this.name = name;
         this.description = description;
         this.votingIntetions = votingIntetions;
@@ -27,6 +30,14 @@ public class Candidate {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {

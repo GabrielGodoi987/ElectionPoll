@@ -56,7 +56,7 @@
             android:layout_height="89dp"
             android:layout_gravity="center"
             android:backgroundTint="#407BFF"
-            android:text="Pesquisa Espontanea"
+            android:text="@string/pesquisa_espontanea"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
@@ -71,7 +71,7 @@
         android:layout_marginEnd="101dp"
         android:layout_marginBottom="188dp"
         android:backgroundTint="#407BFF"
-        android:text="Finalizar"
+        android:text="@string/finalizar"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

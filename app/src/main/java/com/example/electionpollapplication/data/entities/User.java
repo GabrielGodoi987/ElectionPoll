@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 
 import com.example.electionpollapplication.data.enums.UserRole;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class User {
     private Long id;
@@ -13,6 +15,8 @@ public class User {
     private String password;
 
     private UserRole userRole;
+
+    private final Set<Problems> problemsSet = new HashSet<>();
 
     public User(){}
     public User(Long id, String name, String email, String password, UserRole userRole) {
@@ -62,6 +66,10 @@ public class User {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public Set<Problems> getProblemsSet() {
+        return problemsSet;
     }
 
     @Override

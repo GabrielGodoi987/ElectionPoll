@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 AppNavigator.goTo(LoginActivity.this, ResearchEstimated.class);
                 return;
             }
+            AppNavigator.goTo(LoginActivity.this, ResearchEstimated.class);
             Toast.makeText(this, String.format("Usuário %s não existe", emailInpt.getText().toString()), Toast.LENGTH_SHORT).show();
         });
 

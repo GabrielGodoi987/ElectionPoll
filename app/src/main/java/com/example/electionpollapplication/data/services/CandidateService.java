@@ -9,7 +9,7 @@ public class CandidateService {
     private static CandidateService instance;
     private final List<Candidate> candidateList = new ArrayList<>();
 
-    private Long lastInsertdId = 1L;
+    private Long lastInsertedId = 1L;
 
     public static synchronized void getInstance() {
         if (instance == null) {
@@ -18,10 +18,13 @@ public class CandidateService {
     }
 
     public void candidateFactory() {
-        this.candidateList.add(new Candidate(this.lastInsertdId, "Zé Rouba Fácil", "Promete transparência, mas esquece o que é vidro.", 120L));
-        this.candidateList.add(new Candidate(this.lastInsertdId += 1, "Maria Mãos Leves", "Especialista em pegar oportunidades... e o que mais estiver solto.", 230L));
-        this.candidateList.add(new Candidate(this.lastInsertdId += 1, "Tonho do Papo", "Fala bonito, mas o plano de governo é um PowerPoint vazio.", 180L));
-        this.candidateList.add(new Candidate(this.lastInsertdId += 1, "Dona Promessa", "Promete até o impossível, e entrega panfletos.", 95L));
+        this.candidateList.add(new Candidate(this.lastInsertedId, "https://media.gazetadopovo.com.br/2023/02/06061310/Lula-1.jpg", "Zé Rouba Fácil", "Promete transparência, mas esquece o que é vidro.", 0L));
+        this.candidateList.add(new Candidate(this.lastInsertedId += 1, "https://media.gazetadopovo.com.br/2023/02/06061310/Lula-1.jpg", "Maria Mãos Leves", "Especialista em pegar oportunidades... e o que mais estiver solto.", 0L));
+        this.candidateList.add(new Candidate(this.lastInsertedId += 1, "https://media.gazetadopovo.com.br/2023/02/06061310/Lula-1.jpg", "Tonho do Papo", "Fala bonito, mas o plano de governo é um PowerPoint vazio.", 0L));
+        this.candidateList.add(new Candidate(this.lastInsertedId += 1, "https://media.gazetadopovo.com.br/2023/02/06061310/Lula-1.jpg","Dona Promessa", "Promete até o impossível, e entrega panfletos.", 0L));
+        this.candidateList.add(new Candidate(this.lastInsertedId += 1, null,"Nulo", "", 0L));
+        this.candidateList.add(new Candidate(this.lastInsertedId += 1, null,"Branco", "", 0L));
+        this.candidateList.add(new Candidate(this.lastInsertedId += 1, null,"Não sei", "", 0L));
     }
 
 
@@ -29,9 +32,10 @@ public class CandidateService {
         return candidateList;
     }
 
-    public Candidate addNewCandidate(String name, String description, Long votingIntentions) {
+    public Candidate addNewCandidate(String name, String image, String description, Long votingIntentions) {
         Candidate newCandidate = new Candidate(
-                this.lastInsertdId++,
+                this.lastInsertedId++,
+                image,
                 name,
                 description,
                 votingIntentions
