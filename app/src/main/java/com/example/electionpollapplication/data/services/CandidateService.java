@@ -11,10 +11,11 @@ public class CandidateService {
 
     private Long lastInsertedId = 1L;
 
-    public static synchronized void getInstance() {
+    public static synchronized CandidateService getInstance() {
         if (instance == null) {
             instance = new CandidateService();
         }
+        return instance;
     }
 
     public void candidateFactory() {

@@ -10,11 +10,11 @@ public class ProblemService {
     List<Problem> problemList = new ArrayList<>();
     Long lastInsertedId = 0L;
 
-
-    public static synchronized void getInstance() {
+    public static synchronized ProblemService getInstance() {
         if (instance == null) {
             instance = new ProblemService();
         }
+        return instance;
     }
 
     public void problemsFactory() {
@@ -34,7 +34,16 @@ public class ProblemService {
         this.problemList.add(new Problem(lastInsertedId += 1, "Direitos das minorias e inclusão social"));
         this.problemList.add(new Problem(lastInsertedId += 1, "Políticas de habitação e moradia digna"));
     }
+
     public List<Problem> getProblemList() {
         return problemList;
+    }
+
+
+    public Problem findOne(Long id) {
+        return problemList.stream()
+                .filter(problem -> problem.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -14,7 +14,14 @@ public class User {
     private String email;
     private String password;
 
+    private String phoneNumber;
+
     private UserRole userRole;
+
+    private Candidate voteFor;
+
+
+
 
     private final Set<Problem> problemsSet = new HashSet<>();
 
@@ -70,6 +77,22 @@ public class User {
 
     public Set<Problem> getProblemsSet() {
         return problemsSet;
+    }
+
+    public Candidate getVoteFor() {
+        return voteFor;
+    }
+
+    public void setVoteFor(Candidate voteFor) {
+        this.voteFor = voteFor;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override

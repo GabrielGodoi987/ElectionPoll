@@ -1,5 +1,7 @@
 package com.example.electionpollapplication.data.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Candidate {
@@ -13,8 +15,7 @@ public class Candidate {
 
     private Long votingIntetions;
 
-    public Candidate(Long aLong, String name, String description, Long votingIntentions) {
-    }
+    private List<User> voterList = new ArrayList<>();
 
     public Candidate(Long id, String image, String name, String description, Long votingIntetions) {
         this.id = id;
@@ -54,6 +55,10 @@ public class Candidate {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<User> getVoterList() {
+        return voterList;
     }
 
     public Long getVotingIntetions() {

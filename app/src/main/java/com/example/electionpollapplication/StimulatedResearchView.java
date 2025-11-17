@@ -16,12 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.electionpollapplication.adapters.candiates.CandidateAdapter;
 import com.example.electionpollapplication.data.entities.Candidate;
+import com.example.electionpollapplication.data.entities.User;
 import com.example.electionpollapplication.data.services.CandidateService;
+import com.example.electionpollapplication.data.services.UserService;
 import com.example.electionpollapplication.utils.AppNavigator;
 
 public class StimulatedResearchView extends AppCompatActivity {
     RecyclerView candidateReciclerView;
     CandidateService candidateService;
+
+    UserService userService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +33,21 @@ public class StimulatedResearchView extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_stimulated_research_view);
 
-         this.candidateService = new CandidateService();
+        this.candidateService = CandidateService.getInstance();
+        this.userService = UserService.getInstance();
         candidateService.candidateFactory();
 
         candidateReciclerView = findViewById(R.id.candidateReciclerView);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
         candidateReciclerView.setLayoutManager(linearLayoutManager);
+
         candidateReciclerView.setAdapter(new CandidateAdapter(this, candidateService.getCandidateList(), candidate -> {
-            this.showAlertDialog(candidate.getId(), candidate.getName());
+            User newUser = this.userService.createNewUser();
+            this.showAlertDialog(candidate.getId(), candidate.getName(), newUser);
         }));
+
         candidateReciclerView.addItemDecoration(new DividerItemDecoration(this, linearLayoutManager.getOrientation()));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -46,7 +56,8 @@ public class StimulatedResearchView extends AppCompatActivity {
             return insets;
         });
     }
-    private void showAlertDialog(Long id, String name) {
+
+    private void showAlertDialog(Long id, String name, User newUser) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(String.format("Você confirma o seu voto em %s?", name));
         Candidate candidate = this.candidateService.findOne(id);
@@ -54,15 +65,17 @@ public class StimulatedResearchView extends AppCompatActivity {
         builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (candidate == null){
+                if (candidate == null) {
                     Toast.makeText(StimulatedResearchView.this, "Candidato não encontrado", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(StimulatedResearchView.this, String.format("Voto confirmado em %s?", name), Toast.LENGTH_SHORT).show();
-                AppNavigator.goTo(StimulatedResearchView.this, ProblemSetActivity.class);
+                Toast.makeText(StimulatedResearchView.this, String.format("Voto confirmado em %s", name), Toast.LENGTH_SHORT).show();
+                AppNavigator.goToWithParams(StimulatedResearchView.this, ProblemSetActivity.class, "USER_ID", newUser.getId());
 
                 Long intentions = candidate.getVotingIntetions() + 1L;
                 candidate.setVotingIntetions(intentions);
+                candidate.getVoterList().add(newUser);
+                newUser.setVoteFor(candidate);
             }
         });
 
