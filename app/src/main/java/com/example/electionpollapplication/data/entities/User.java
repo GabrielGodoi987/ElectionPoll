@@ -40,6 +40,31 @@ public class User {
         this.created_at = created_at;
     }
 
+    public User(
+            Long id,
+            String name,
+            String email,
+            String password,
+            String phoneNumber,
+            UserRole userRole,
+            Candidate voteFor,
+            String created_at,
+            String latitude,
+            String longitude
+    ) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.userRole = userRole;
+        this.voteFor = voteFor;
+        this.created_at = created_at;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+
 
     public Long getId() {
         return id;

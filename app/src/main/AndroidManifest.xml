@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ElectionPollApplication">
         <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminVotersProfilesActivity"
+            android:exported="false" />
+        <activity
             android:name=".VotersMetricsAdminActivity"
             android:exported="false" />
         <activity
