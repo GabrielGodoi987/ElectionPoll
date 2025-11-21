@@ -4,7 +4,11 @@ import com.example.electionpollapplication.data.entities.User;
 import com.example.electionpollapplication.data.enums.UserRole;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +17,8 @@ public class UserService {
     private final List<User> usersData = new ArrayList<>();
     private Long lastInsertedId = 0L;
 
-    private UserService() {}
+    private UserService() {
+    }
 
     public static synchronized UserService getInstance() {
         if (instance == null) {
@@ -23,9 +28,9 @@ public class UserService {
     }
 
     public void usersFactory() {
-        usersData.add(new User(++lastInsertedId, "Joao example", "joao@example.com", "1234", UserRole.INTERVIEWER));
-        usersData.add(new User(++lastInsertedId, "Maria example", "maria@example.com", "1234", UserRole.INTERVIEWER));
-        usersData.add(new User(++lastInsertedId, "Gabriel Godoi", "gabriel@example.com", "1234", UserRole.ADMIN));
+        usersData.add(new User(++lastInsertedId, "Joao example", "joao@example.com", "1234", UserRole.INTERVIEWER, this.dateTimeGenerator()));
+        usersData.add(new User(++lastInsertedId, "Maria example", "maria@example.com", "1234", UserRole.INTERVIEWER, this.dateTimeGenerator()));
+        usersData.add(new User(++lastInsertedId, "Gabriel Godoi", "gabriel@example.com", "1234", UserRole.ADMIN, this.dateTimeGenerator()));
     }
 
     public User createNewUser() {
@@ -34,7 +39,8 @@ public class UserService {
                 "",
                 "",
                 "",
-                UserRole.VOTER
+                UserRole.VOTER,
+                this.dateTimeGenerator()
         );
         usersData.add(newUser);
         return newUser;
@@ -58,5 +64,11 @@ public class UserService {
 
     public List<User> getUsersData() {
         return usersData;
+    }
+
+    private String dateTimeGenerator() {
+        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'00:00");
+        return sdf.format(currentTime);
     }
 }

@@ -20,18 +20,24 @@ public class User {
 
     private Candidate voteFor;
 
+    private String created_at;
+
+    private String longitude;
+    private String latitude;
+
 
 
 
     private final Set<Problem> problemsSet = new HashSet<>();
 
     public User(){}
-    public User(Long id, String name, String email, String password, UserRole userRole) {
+    public User(Long id, String name, String email, String password, UserRole userRole, String created_at) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.userRole = userRole;
+        this.created_at = created_at;
     }
 
 
@@ -93,6 +99,30 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
     @Override

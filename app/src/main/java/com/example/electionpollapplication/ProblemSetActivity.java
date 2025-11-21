@@ -58,7 +58,7 @@ public class ProblemSetActivity extends AppCompatActivity {
         }));
 
         confirmBtn.setOnClickListener(view -> {
-            if(problemList.isEmpty() || problemList.size() > 10){
+            if (problemList.isEmpty() || problemList.size() > 10) {
                 Toast.makeText(this, "É necessário escolher no minimo 1 e no máximo 10 problemas", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -71,7 +71,7 @@ public class ProblemSetActivity extends AppCompatActivity {
                 user.getProblemsSet().add(problem);
             }
 
-            AppNavigator.goToWithParams(ProblemSetActivity.this, CreateNewVoterActivity.class,  "USER_ID", user.getId());
+            AppNavigator.goToWithParams(ProblemSetActivity.this, CreateNewVoterActivity.class, "USER_ID", user.getId());
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

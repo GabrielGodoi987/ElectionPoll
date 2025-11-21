@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.cardview)
     implementation(libs.constraintlayout)
+    implementation(libs.play.services.location)
     implementation(libs.annotation)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
