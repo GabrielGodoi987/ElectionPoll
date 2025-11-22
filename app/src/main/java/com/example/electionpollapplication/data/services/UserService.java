@@ -72,4 +72,9 @@ public class UserService {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy'T'00:00");
         return sdf.format(currentTime);
     }
+
+
+    public void cleanData() {
+        this.getUsersData().clear();
+    }
 }

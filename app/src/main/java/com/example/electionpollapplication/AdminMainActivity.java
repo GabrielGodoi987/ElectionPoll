@@ -3,6 +3,7 @@ package com.example.electionpollapplication;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,7 @@ public class AdminMainActivity extends AppCompatActivity {
 
     TextView tvTotalEntrevistados;
 
-    Button btnEleitores, btnResultado;
+    Button btnEleitores, btnResultado, btnLimparDados;
     UserService userService;
 
     @Override
@@ -35,6 +36,7 @@ public class AdminMainActivity extends AppCompatActivity {
 
         tvTotalEntrevistados = findViewById(R.id.tvTotalEntrevistados);
         btnResultado = findViewById(R.id.btnResultado);
+        btnLimparDados = findViewById(R.id.btnLimparDados);
 
         int countOnlyVoters = 0;
 
@@ -52,6 +54,11 @@ public class AdminMainActivity extends AppCompatActivity {
 
         btnResultado.setOnClickListener(action -> {
             AppNavigator.goTo(AdminMainActivity.this, DashboardActivity.class);
+        });
+
+        btnResultado.setOnClickListener(action -> {
+            userService.cleanData();
+            Toast.makeText(this, "Dados resetados com sucesso", Toast.LENGTH_SHORT).show();
         });
 
 
